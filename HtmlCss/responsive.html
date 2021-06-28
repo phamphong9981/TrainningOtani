@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePen</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+        @media (max-width: 353px) {
+            #main>.row>h1{
+                font-size: 10vw;
+            }
+            #main>.row>p{
+                font-size: 5vw;
+            }
+            .text-responsive{
+                font-size: 5vw !important;
+            }
+            ::placeholder{
+                color: #495057;
+                font-size: 6vw !important;
+            }
+            .input-responsive{
+                height: 10vw !important;
+            }
+            option:checked{
+                font-size: 6vw !important;
+            }
+            .radio-button-responsive{
+                width: 4vw !important;
+            }
+            .checkbox-responsive{
+                width: 4vw !important;
+            }
+            #text-area{
+                height: 100vw;
+            }
+            
+        }
+        @media (max-width: 470px) {
+            
+            #signup{
+                margin-right:1vw !important;
+            }
+            #button-hiden{
+                margin-right:1vw !important;
+                width: 10vw !important;
+                height: 8vw !important;
+            }
+            #login{
+                margin-right: 1vw;
+            }
+            #label{
+                width: 35vw !important;
+                padding-top: 1.5vw !important;
+            }
+            #label a{
+                font-size: 3vw !important;
+                padding-right: .5vw !important;
+                
+            }
+            
+            #logo{
+                width: 7vw !important;
+            
+            }
+            #bottom-label-1{
+                width: 15vw;
+            }
+            #bottom-label{
+                height: 5vw !important;
+                
+            }
+            #bottom-label a{
+                padding-left: 1vw !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            #bottom-label-2{
+                width: 18vw !important;
+                font-size: 2vw !important;
+            }
+            #bottom-label-2 i{
+                font-size: 2vw !important;
+                transform: translateY(0vw) !important;
+            }
+            .title-padding{
+                padding-left: 10vw !important;
+                padding-right: 10vw !important;
+            }
+            .btn2{
+                font-size: 3vw !important;
+                line-height: 8vw !important;
+                width: 13vw !important;
+                height: 8vw !important;
+            }
+        }
+        @media (max-width: 760px) {
+            body{
+                width: 100vw;
+            }
+            .col-xs-12{
+                padding: 0;
+                width: 100%;
+            }
+
+            #form{
+                width: 100vw;
+                margin: 0 !important;
+            }
+            #form>div{
+                margin-bottom: 5vw !important;
+            }
+            input{
+                margin-bottom: 5vw !important;
+            }
+            select{
+                margin-bottom: 5vw !important;
+            }
+            nav{
+                height: 12vw !important;
+            }
+            #main{
+                top: 18vw !important;
+            }
+
+        }
+        @media (max-width: 780px ){
+            .btn1{
+                display: none;
+            }
+            .btn3{
+                display: block !important;
+            }
+            #button-hiden{
+                display: block !important;
+            }
+            #form{
+                width: 100% !important;
+            }
+            #button-bar{
+                width: 6vw !important;
+                height: 6vw !important;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 1vw !important;
+                left: 1vw !important;
+            }
+            #button-bar>span{
+                font-size: 3vw !important;
+            }
+            input[type="submit"]{
+                height: 15vw !important;
+                font-size: 7vw !important;
+                margin-top: 10vw !important;
+            }
+            #hidden{
+                padding-left: 1vw !important;
+                padding-top: 0vw !important;
+                width: 109vw !important;
+                padding-bottom: 5vw !important;
+            }
+            #hidden>span{
+                font-size: 6vw !important;
+            }
+            #hidden>:nth-child(2){
+                font-size: 5vw !important;
+            }
+            #hidden>:nth-child(3){
+                width: 90% !important;
+            }
+            #hidden>:nth-child(3)>select{
+                height: 6vw;
+                margin-top: 1vw !important;
+                margin-bottom: 3vw !important;
+                font-size: 3vw !important;
+            }
+            #hidden>:nth-child(4){
+                padding-left: 5vw !important;
+                padding-top: 2vw !important;
+            }
+            #hidden>:nth-child(4)>:nth-child(1)>button{
+                width: 38vw !important;
+                height: 11vw !important;
+                padding: 0vw !important;
+                border: 1vw solid #2D2D28 !important;
+                box-shadow: 1px 1px black !important;
+                border-radius: 2vw !important;
+                font-size: 5vw !important;
+            }
+            #hidden>:nth-child(4)>:nth-child(2){
+                padding-top: 2vw !important;
+            }
+            #hidden>:nth-child(4)>:nth-child(2)>div{
+                padding-top: 0vw !important;
+            }
+            #hidden>:nth-child(4)>:nth-child(2)>div>:nth-child(1){
+                width: 3vw !important;
+                height: 3vw !important;
+                margin-top: 2vw !important;
+            }
+            #hidden>:nth-child(4)>:nth-child(2)>div>:nth-child(2){
+                margin-left: 4vw !important;
+                font-size: 4vw !important;
+                width: 38vw !important;
+                margin-bottom: 2vw;
+            }
+        }
+        body::before{
+            background-image: linear-gradient(115deg,rgba(58, 58, 158, 0.8),rgba(136, 136, 206, 0.7)),url(1.jpeg);
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-size:cover;
+            background-repeat: no-repeat;
+            position: fixed;
+            content: "";
+        }
+        body{margin: 0;}
+        .fade{
+            background-color: #55558E;
+            opacity: 0.8;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 65px;
+            z-index: 1;
+        }
+        .LoveButtonIcon-module_root-mo8P8{
+            transform: translateX(12px) translateY(12px);
+        }
+        .list-button .btn1:hover{
+            background-color: #5a5f73 !important;
+        }
+        .list-button .btn2:hover{
+            background-color: #248c46 !important;
+        }
+        #menu{
+            position: fixed;
+            width: 100%;
+            z-index: 3;
+        }
+        #main{
+            position: absolute;
+            top: 65px;
+            z-index: 2;
+            width: 100%;
+        }
+        .ele{
+            margin-bottom: 5px;
+            font-size: 20px;
+            
+        }
+        #hidden{
+            visibility: hidden;
+        }
+        ::placeholder{
+            color: #495057;
+            font-size: 15px;
+        }
+        select:not(:checked) {
+            color: #495057;
+        }
+        #button-visible{
+            display: flex;
+        }
+        #toggle{
+            position: absolute;
+            top: 23%;
+            left: 55%;
+        }
+        .myhr{
+            height: 4%;
+            background-color: black;
+            width: 10px;
+            position: absolute;
+            margin-top: 0;
+        }
+        select::selection{
+            color: #006400;
+        }
+    </style>
+    <script>
+        function click1(){
+            document.getElementById("hidden").style.setProperty("visibility","visible")
+        }
+        function click2(){
+            document.getElementById("hidden").style.setProperty("visibility","hidden")
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="menu" style="width: 100%;">
+        <nav  style="background-color: #1E1F26 ;height: 65px; display: flex;align-items: center;font-family: Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;">
+            <div id="logo" style="width: 30px;height: 100%;margin: 0px 8px 0px 8px;">
+                <a href="https://codepen.io/freeCodeCamp/full/VPaoNP" style="width: 100%; height: 100%;   display: flex;justify-content: center;align-items: center;">
+                    <svg viewBox="0 0 100 100"><path d="M100 34.2c-.4-2.6-3.3-4-5.3-5.3-3.6-2.4-7.1-4.7-10.7-7.1-8.5-5.7-17.1-11.4-25.6-17.1-2-1.3-4-2.7-6-4-1.4-1-3.3-1-4.8 0-5.7 3.8-11.5 7.7-17.2 11.5L5.2 29C3 30.4.1 31.8 0 34.8c-.1 3.3 0 6.7 0 10v16c0 2.9-.6 6.3 2.1 8.1 6.4 4.4 12.9 8.6 19.4 12.9 8 5.3 16 10.7 24 16 2.2 1.5 4.4 3.1 7.1 1.3 2.3-1.5 4.5-3 6.8-4.5 8.9-5.9 17.8-11.9 26.7-17.8l9.9-6.6c.6-.4 1.3-.8 1.9-1.3 1.4-1 2-2.4 2-4.1V37.3c.1-1.1.2-2.1.1-3.1 0-.1 0 .2 0 0zM54.3 12.3L88 34.8 73 44.9 54.3 32.4V12.3zm-8.6 0v20L27.1 44.8 12 34.8l33.7-22.5zM8.6 42.8L19.3 50 8.6 57.2V42.8zm37.1 44.9L12 65.2l15-10.1 18.6 12.5v20.1zM50 60.2L34.8 50 50 39.8 65.2 50 50 60.2zm4.3 27.5v-20l18.6-12.5 15 10.1-33.6 22.4zm37.1-30.5L80.7 50l10.8-7.2-.1 14.4z" style="fill: #FFFFFF;"></path></svg>
+                </a>
+            </div>
+            <div id="label" style="max-width: 100%; height: 100%; flex: 20 1 0 ;padding-top:5px" >
+                <div id="top-label">
+                    <a href="" style="display:block;text-decoration: none;color: #FFFFFF; font-size: 20px;font-family: Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif"><strong>FCC: Survey Form</strong></a>
+                </div>
+                <div style="display: flex; width: 100%" id="bottom-label">
+                    <div style=" margin-right: 5px; text-overflow: ellipsis;; white-space: nowrap; overflow: hidden;;padding-bottom: 5px;" id="bottom-label-1">
+                        <a href="" style="color: #9b9dad;text-decoration: none; font-size: 12px; display: block;">freeCodeCamp.org</a>
+                    </div>
+                    <div style="width: 60px;" id="bottom-label-2">
+                        <a href="" style="font-size: 12px; text-decoration: none;color: #FFFFFF;padding: 1px 6px 1px 6px;background-color: rgba(80, 80, 80, 0.637);width: 100%; display: block;" >
+                            <i class="material-icons" style="font-size: 12px;transform: translateY(3px);">add</i>Follow
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="list-button" style="display: flex;align-items: center;flex-grow: 1; font-size: 1.15em;padding-right: 5px;flex-direction: row;width: max-content; justify-content: space-around;" >
+                <button aria-expanded="false" data-open="false" class="" data-size="mini" style="background-color: #444857;height: 42px;width: 45px; padding-left: 12px;padding-right: 2px;; border-radius: 5px;box-sizing: border-box; margin-left: 8px; margin-right: 8px;border: none;position: relative; margin-left: 0; display: none;" id="button-hiden">
+                    <hr class="myhr" style="top: 25%; left: 12%; width: 30%;">
+                    <hr class="myhr" style="top: 50%; left: 12%; width: 50%;">
+                    <hr class="myhr" style="top: 75%; left: 12%; width: 75%;">
+                    <svg viewBox="-122.9 121.1 105.9 61.9" style="width: 38%; fill: white" id="toggle"><path d="M-63.2 180.3l43.5-43.5c1.7-1.7 2.7-4 2.7-6.5s-1-4.8-2.7-6.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8 1-6.5 2.7L-69.9 161l-37.2-37.2c-1.7-1.7-4-2.7-6.5-2.7s-4.8 1-6.5 2.6c-1.9 1.8-2.8 4.2-2.8 6.6 0 2.3.9 4.6 2.6 6.5 11.4 11.5 41 41.2 43 43.3l.2.2c3.6 3.6 10.3 3.6 13.9 0z"></path></svg></button>
+                <div id="button-visible">
+                    <div class="btn1" style="height: 42px;width: 40px;;cursor: pointer;background-color: #444857;border-radius: 5px;padding: 2px;">
+                        <svg viewBox="0 0 100 92" class="love-button" style="width: 16px;height:16px;fill:#FFFFFF; transform:translate(10px,5px)"><path d="M85.24 2.67C72.29-3.08 55.75 2.67 50 14.9 44.25 2 27-3.8 14.76 2.67 1.1 9.14-5.37 25 5.42 44.38 13.33 58 27 68.11 50 86.81 73.73 68.11 87.39 58 94.58 44.38c10.79-18.7 4.32-35.24-9.34-41.71z"></path></svg>
+                    </div>
+                    <div class="btn1" style="height: 42px;cursor: pointer;background-color: #444857;border-radius: 5px;;box-sizing: border-box;padding-left: 12px;padding-top: 8px;padding-right: 12px; font-family: Lato,Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;margin-left: 5px;">
+                        <svg viewBox="-703.9 491.1 31.7 25.3" style="width: 15px;height:15px;margin-right:5px;box-sizing: border-box;fill:#FFFFFF"><path d="M-688.1 499.6c-4.3 0-8.1 2.2-10.4 5.6 2.2 3.4 6 5.6 10.4 5.6 4.3 0 8.1-2.2 10.4-5.6-2.2-3.3-6-5.6-10.4-5.6zm0 9.9c-2.3 0-4.2-1.9-4.2-4.2-.1-2.4 1.8-4.3 4.2-4.3 2.3 0 4.2 1.9 4.2 4.2 0 2.4-1.9 4.3-4.2 4.3z" ></path><path d="M-673.4 491.1h-29.3c-.7 0-1.2.5-1.2 1.2v22.9c0 .7.5 1.2 1.2 1.2h29.3c.7 0 1.2-.5 1.2-1.2v-22.9c0-.6-.6-1.2-1.2-1.2zm-28.1 22.9v-17.1h26.8V514h-26.8z"></path></svg>
+                        Change View
+                    </div>
+                </div>
+                <div class="btn2" id="signup" style="height: 40px;;cursor: pointer;background-color: #444857;border-radius: 5px;box-sizing: border-box; background-color: #47cf73;font-size: 15px;width: 80px;line-height: 40px;text-align: center; margin-right: 5px; ">
+                    Sign up
+                </div>
+                <div class="btn2" id="login" style="height: 40px;;cursor: pointer;background-color: #444857;border-radius: 5px;box-sizing: border-box;width: 80px;font-size: 15px;text-align: center; line-height: 40px;">
+                    Log In
+                </div>
+                    
+            </div>
+            
+        </nav>
+        <div class="bar" style=" width: max-content; ; position: relative;">
+            <button id="button-bar" href="" style="position: absolute; top: 5px; left: 5px;background: #59589F; border: none;cursor: pointer;opacity: 0.6;" onclick="click1()">
+                <span class="material-icons" style="font-size: 30px;color:#006400">
+                    menu
+                    </span>
+            </button>
+            <div id="hidden" style=" background-color: #242411;position: absolute;top: 0;left: 0; padding-left: 10px;padding-top: 10px;width: 320px;height: max-content; padding-bottom: 15px;">
+                <span onclick="click2()" class="material-icons" style="cursor: pointer;color:#006400;font-size: 30px;">
+                    clear
+                </span>
+                <div style="display: inline-block; text-align: center;width: 80%;font-size: 17px;">Select Test Suite:</div>
+                <div style="width: 80%; margin: auto;">
+                    <select name="" id="" style="width: 100%;margin-top: 10px;background-color: #252520;">
+                        <option disabled="" selected="" value="" >Survey form</option>
+                    </select>
+                </div>
+                <div style="padding-left: 20px;padding-top: 15px;">
+                    <div style="width: 50%;float: left;">
+                        <button style=" width: 110px;height: 40px;padding: 10px;margin: auto; background-color: #2D2D28; border: 1px solid #2D2D28;box-shadow: 3px 3px black; border-radius: 5px;">Run Tests</button>
+                        <button style=" width: 110px;height: 40px;padding: 10px;margin: auto;margin-top: 10px;background-color: #64645E;border: 1px solid #64645E;box-shadow: 3px 3px black;border-radius: 5px;">Tests</button>
+                    </div>
+                    <div style="width: 50%; float:left; display: flex;flex-direction: column; justify-content: space-between;padding-top: 15px">
+                        <div>
+                            <div style="width: 12px;height: 12px; background-color: red; float: left;margin-top: 3px;"></div>
+                            <div style="width: 120px;height: max-content;margin-left: 20px;">Test fails</div>
+                        </div>
+                        <div>
+                            <div style="width: 12px;height: 12px; background-color: #4DC24B; float: left;margin-top: 3px;"></div>
+                            <div style="width: 120px;height: max-content;margin-left: 20px;">Tests passed</div>
+                        </div>
+                        <div>
+                            <div style="width: 12px;height: 12px; background-color: #EA8E02; float: left;margin-top: 3px;"></div>
+                            <div style="width: 120px;height: max-content;margin-left: 20px;">Tests executing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    
+    <div id="main">
+        <div class="row">
+            <h1 class="text-center col-md-12 col-sm-12 col-xs-12 title-padding" >freeCodeCamp Survey Form</h1>
+            <p class="text-center col-md-12 col-sm-12 col-xs-12 title-padding" ><i>Thank you for taking the time to help us improve the platform</i></p>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 col-xs-12" style="margin:auto">
+                <form id="form" style="max-width: 700px; margin: auto;padding: 30px 40px 30px 40px;box-sizing: border-box; background-color: rgba(27, 27, 50, 0.8);">
+                    <div class="name text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">Name</div>
+                    <div class="input "><input type="text" class="input-responsive text-responsive" style="width: 100%;height: 28px; border-radius: 5px; border: 1px solid gray; margin-bottom: 15px;" placeholder="Enter your name" ></div>
+                    <div class="email text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">Email</div>
+                    <div class="input"><input type="text" class="input-responsive text-responsive" style="width: 100%;height: 28px; border-radius: 5px; border: 1px solid gray; margin-bottom: 15px;" placeholder="Enter your Email" ></div>
+                    <div class="age text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">Age(optional)</div>
+                    <div class="input"><input class="input-responsive text-responsive" type="text" style="width: 100%;height: 28px; border-radius: 5px; border: 1px solid gray; margin-bottom: 15px;" placeholder="Age" ></div>
+                    <div class="describe text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">Which option best describes your current role?</div>
+                    <select name="describe" id="des" style="width: 100%; height: 32px; border-radius: 5px; border: 1px solid gray; margin-bottom: 15px;" class="input-responsive text-responsive">
+                        <option disabled="" selected="" value=""  class="text-responsive">Select current role</option>
+                        <option value="student"  class="text-responsive">Student</option>
+                        <option value="job" class="text-responsive">Full Time Job</option>
+                        <option value="learner" class="text-responsive">Full Time Learner</option>
+                        <option value="preferNo" class="text-responsive">Prefer not to say</option>
+                        <option value="other" class="text-responsive">Other</option>
+                    </select>
+                    <div class="describe text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">Would you recommend freeCodeCamp to a friend?</div>
+                    <div class="ele">
+                        <input type="radio" name="Rec" value="Definitely" class="radio-button-responsive">
+                        <label for="Definitely" class="text-responsive">Definitely</label><br>
+                    </div>
+                    <div class="ele">
+                        <input type="radio" name="Rec" value="Maybe" class="radio-button-responsive">
+                        <label for="Definitely" class="text-responsive">Maybe</label><br>
+                    </div>
+                    <div class="ele" style="margin-bottom:30px">
+                        <input type="radio" name="Rec" value="Not sure" class="radio-button-responsive">
+                        <label for="Definitely" class="text-responsive">Not sure</label><br>
+                    </div>
+                    <div class="fav text-responsive" style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;">What is your favorite feature of freeCodeCamp?</div>
+                    <select name="describe" id="des" style="width: 100%; height: 32px; border-radius: 5px; border: 1px solid gray; margin-bottom: 15px;" class="input-responsive text-responsive">
+                        <option disabled="" selected="" value="" style="color: #495057;font-size: 5px;"  class="text-responsive">Select current role</option>
+                        <option value="student" class="text-responsive">Challenges</option>
+                        <option value="job" class="text-responsive">Projects</option>
+                        <option value="learner" class="text-responsive">Comunity</option>
+                        <option value="preferNo" class="text-responsive">Open Source</option>
+                    </select>
+                    <div style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;" class="text-responsive">What would you like to see improved? (Check all that apply)</div>
+                    <div class="ele">
+                        <input type="checkbox" name="1" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Front-end Projects</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="2" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Back-end Projects</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="3" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Data Visualization</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="4" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Challenges</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="5" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Open Source Community</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="6" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Gitter help rooms</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="7" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Videos</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="8" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">City Meetups</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="9" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Wiki</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="10" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Forum</label>
+                    </div>
+                    <div class="ele">
+                        <input type="checkbox" name="11" id="checkbox" class="checkbox-responsive">
+                        <label for="checkbox" class="text-responsive">Additional Courses</label>
+                    </div>
+                    <div style="margin-bottom:15px;font-weight: 400;font-size: 1.125rem;" class="text-responsive">What would you like to see improved? (Check all that apply)</div>
+                    <textarea name="" id="text-area" cols="85" rows="10" placeholder="Enter your comment here..." style="width: 100%;"></textarea>
+                    <input type="submit" style="width: 100%; height: 40px; background-color: #37AF65;margin-top: 50px;font-size: 20px;border: none;">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
