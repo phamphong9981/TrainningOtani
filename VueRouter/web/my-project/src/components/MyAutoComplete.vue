@@ -26,11 +26,10 @@ export default {
     const choose = ref("");
     const list = ref([]);
     const display = ref([]);
-    // const packet = inject("packet");
     const cityName = ref("");
     function handleChange() {
       cityName.value = choose.value.split(",")[0];
-      router.push("/abc/"+cityName.value)
+      router.push({query:{city:cityName.value}})
     }
 
     fetch("https://countriesnow.space/api/v0.1/countries/capital")

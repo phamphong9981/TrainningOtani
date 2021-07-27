@@ -6,4 +6,4 @@ services:
       working_dir: /src
       user: ${COMPOSE_UID:-1000}:${COMPOSE_GID:-1000}
       ports:
-        - 8082:8080
+        - 8081:8080

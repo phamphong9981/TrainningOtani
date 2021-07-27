@@ -4,20 +4,30 @@
     <div id="date-time">{{ displayDate }}</div>
     <div id="data">
       <div id="temperature">{{ temperature }}&#8451;</div>
-      <div id="humidity">{{humidity}}%</div>
+      <div id="humidity">{{ humidity }}%</div>
     </div>
     <div id="time-updated">Updated: {{ dateUpdated }}</div>
+    <v-btn dark style="height: 4vw; float: right; font-size: 2vw" @click="add()"
+      >Add to table</v-btn
+    >
   </v-container>
 </template>
 
 <script scoped>
 import { ref, inject, watch } from "@vue/composition-api";
+import router from "../router/router.js";
 export default {
   name: "my-display",
-  setup() {
+  props: {
+    city: {
+      type: String,
+      default: ""
+    },
+  },
+  setup(props) {
     const packet = inject("packet");
     const cityName = ref("");
-    const humidity=ref("")
+    const humidity = ref("");
     const temperature = ref("");
     const dateUpdated = inject("dateUpdated");
     const days = ref([
@@ -48,6 +58,32 @@ export default {
     const year = ref("");
     const date = ref("");
     const displayDate = ref("");
+    const display = inject("display");
+    
+    
+    console.log(router);
+    cityName.value=props.city
+    if (cityName.value != "") {
+      var url =
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+         cityName.value+
+        "&appid=604dbe890a4554fab6439b74749da602";
+      console.log(url);
+      console.log(url);
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          packet.value = data;
+          console.log(packet);
+        });
+    }
+    function add() {
+      display.value.push(packet.value);
+      console.log(display.value);
+    }
+    watch(()=>props.city,(newValue)=>{
+      cityName.value=newValue
+    })
     watch(packet, (newValue) => {
       cityName.value = newValue.name;
       var d = new Date();
@@ -58,28 +94,22 @@ export default {
       displayDate.value =
         day.value + ", " + date.value + " " + month.value + " " + year.value;
       temperature.value = parseFloat(newValue.main.temp - 273.15).toFixed(2);
-      humidity.value=newValue.main.humidity
+      humidity.value = newValue.main.humidity;
       console.log(newValue.name);
-      dateUpdated.value=d.toLocaleTimeString()+"  "+d.toDateString()
+      dateUpdated.value = d.toLocaleTimeString() + "  " + d.toDateString();
     });
-    setInterval(function () {
-      if (cityName.value != "") {
-        var url =
-          "https://api.openweathermap.org/data/2.5/weather?q=" +
-          cityName.value +
-          "&appid=604dbe890a4554fab6439b74749da602";
-        fetch(url)
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(url);
-            packet.value = data;
-            var d=new Date()
-            dateUpdated.value=d.toLocaleTimeString()+"  "+d.toDateString()
-          });
-      }
-    }, 60000);
-    return { packet, cityName, temperature, displayDate, dateUpdated,humidity };
+
+    return {
+      packet,
+      cityName,
+      temperature,
+      displayDate,
+      dateUpdated,
+      humidity,
+      add,
+    };
   },
+  
 };
 </script>
 
@@ -105,7 +135,7 @@ export default {
   justify-content: center;
   height: 11vw;
 }
-#temperature{
+#temperature {
   width: 50%;
   display: flex;
   align-items: center;
@@ -113,7 +143,7 @@ export default {
   position: relative;
   height: 100%;
 }
-#humidity{
+#humidity {
   width: 50%;
   display: flex;
   align-items: center;
@@ -150,7 +180,7 @@ export default {
   color: white;
   font-size: 1vw;
 }
-#time-updated{
+#time-updated {
   color: white;
   font-size: 1.5vw;
   text-align: center;

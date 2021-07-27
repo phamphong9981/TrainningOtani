@@ -8,11 +8,16 @@
         margin: auto;
       "
     >
-      
+      <v-btn
+        dark
+        style="height: 4vw; float: right; font-size: 2vw"
+        @click="add()"
+        >Add to table</v-btn
+      >
     </div>
-    <div style="height: 50vw; overflow-y: scroll; width: 70%; margin: auto">
+    <div style="height: 30vw; overflow-y: auto; width: 70%; margin: 5vw auto">
       <table style="width: 100%; color: white; font-size: 2vw">
-        <thead style="width: 100%; height: 8vw">
+        <thead style="width: 100%; height: 6vw">
           <th>City</th>
           <th>Temp</th>
           <th>Humidity</th>
@@ -58,14 +63,17 @@
 </template>
 
 <script>
-import { inject, ref } from "@vue/composition-api";
+import {  inject, ref } from "@vue/composition-api";
 export default {
   name: "table-follow",
   setup() {
-    const packet = inject("packet");
-    const display = inject("display")
+    let {packet,dateUpdated}=inject("home-store")
+    const display = ref([]);
     const choose = ref([]);
-    const dateUpdated = inject("dateUpdated");
+    function add() {
+      display.value.push(packet.value);
+      console.log(display.value);
+    }
     function removeItem() {
       console.log(choose.value);
       choose.value.sort();
@@ -76,7 +84,6 @@ export default {
     }
     function refreshAll() {
       var temp = display.value;
-      // console.log(temp);
       display.value = [];
       temp.map((item) => {
         var url =
@@ -97,6 +104,7 @@ export default {
     return {
       packet,
       display,
+      add,
       choose,
       removeItem,
       refreshAll,
@@ -108,6 +116,7 @@ export default {
 <style scoped>
 th {
   width: 25%;
+  font-family: 'Lora', serif;
 }
 td {
   text-align: center;
@@ -118,4 +127,21 @@ tr:nth-child(1) {
 tr:nth-last-child() {
   min-height: 0px;
 }
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
 </style>
