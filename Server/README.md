@@ -1,6 +1,6 @@
-**This project builds a server in Backend:**
-    Programming languague: Python\
-    Framework: FastAPI + SQLAlchemy\
-    Database: Mysql\
-    Tool: Docker\
+**This project builds a server in Backend:**\
+    &nbsp;Programming languague: Python\
+    &nbsp;Framework: FastAPI + SQLAlchemy\
+    &nbsp;Database: Mysql\
+    &nbsp;Tool: Docker\
 
