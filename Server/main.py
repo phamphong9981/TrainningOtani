@@ -1,12 +1,16 @@
-from typing import Optional
-
-from fastapi import FastAPI, Path
-from sqlalchemy.orm import Session
+from fastapi import FastAPI
+from routes import admin
 import models, schemas, crud
 
 app=FastAPI()
+app.include_router(admin.router)
 
-@app.get("/")
+
+@app.get("/{employee_id}")
+def get_all_employee(employee_id:int):
+    return crud.get_employee(employee_id)
+
+@app.get("/getAll")
 def get_all_employee():
     return crud.get_all_employee()
 
@@ -20,8 +24,9 @@ def delete_employee(employee_id: int):
 
 @app.put("/update/{employee_id}")
 def update_employee(employee: schemas.Employee,employee_id:int):
-    return crud.update_employee(employee,employee_id)
+    return crud.put_employee(employee,employee_id)
 
 @app.patch("/patch/{employee_id}")
 def patch_empolyee(employee:schemas.Employee,employee_id:int):
-    return crud.patch_employee(employee,employee_id)
+    payload=employee.dict(exclude_none=True)
+    return crud.patch_employee(payload,employee_id)
