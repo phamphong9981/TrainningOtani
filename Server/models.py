@@ -19,3 +19,11 @@ class Employee(Base):
     bank = Column(String)
     department = Column(String)
     role = Column(String)
+
+
+class Account(Base):
+    __tablename__ = "account"
+    id = Column(Integer,primary_key=True)
+    username = Column(String)
+    password = Column(String)
+    role = Column(Integer)

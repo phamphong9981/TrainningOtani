@@ -9,6 +9,7 @@ python = "^3.8"
 fastapi = "^0.67.0"
 SQLAlchemy = "^1.4.22"
 mysqlclient = "^2.0.3"
+PyJWT = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 uvicorn = "^0.14.0"

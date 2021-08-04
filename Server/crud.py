@@ -1,5 +1,9 @@
+from fastapi import HTTPException
+from starlette import status
+
 import schemas
 from database import SessionLocal
+import jwt
 session =SessionLocal()
 import models
 def get_employee(employee_id:int):
@@ -38,3 +42,10 @@ def patch_employee(payload:dict,employee_id:int):
         session.rollback()
         return False
     return True
+
+def login_account(username:str,password:str):
+    account=session.query(models.Account).filter(models.Account.username==username,models.Account.password==password).first()
+    if(account):
+        return jwt.encode({"username":account.username,"password":account.password,"role":account.role},"secret",algorithm="HS256",headers={"alg": "HS256"})
+    else:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Wrong username or password")

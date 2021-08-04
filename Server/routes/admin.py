@@ -1,9 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, Header
 from dependencies.is_admin_role import is_admin_role
 
-
-
-
 router = APIRouter(
     prefix="/admin",
     tags=["admin"],
